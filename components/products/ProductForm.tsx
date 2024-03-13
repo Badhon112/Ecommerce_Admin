@@ -268,7 +268,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
-            {collections.length > 0 && (
+            {collections.length > 1 && (
               <FormField
                 control={form.control}
                 name="collections"
@@ -292,7 +292,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                         }
                       />
                     </FormControl>
-                    <FormMessage className="text-red-1" />
+                    <FormMessage className="text-red-1"  >Not working</FormMessage>
                   </FormItem>
                 )}
               />
