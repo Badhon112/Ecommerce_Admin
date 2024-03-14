@@ -73,7 +73,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData
-      ? initialData
+      ? {
+          ...initialData,
+          collections: initialData.collection.map((value) => value._id),
+        }
       : {
           title: "",
           description: "",
@@ -127,7 +130,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
       {initialData ? (
         <div className="flex items-center justify-between">
           <p className="text-heading2-bold">Edit Product</p>
-          {/* <Delete id={initialData._id} item="product" /> */}
+          <Delete id={initialData._id} item="product" />
         </div>
       ) : (
         <p className="text-heading2-bold">Create Product</p>
@@ -292,7 +295,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                         }
                       />
                     </FormControl>
-                    <FormMessage className="text-red-1"  >Not working</FormMessage>
+                    <FormMessage className="text-red-1">
+                      Not working
+                    </FormMessage>
                   </FormItem>
                 )}
               />

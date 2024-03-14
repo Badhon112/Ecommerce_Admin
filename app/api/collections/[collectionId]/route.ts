@@ -17,7 +17,7 @@ export const GET = async (
     }
     return NextResponse.json(collection, { status: 200 });
   } catch (error) {
-    console.log("[Collection_Id Delete]", error);
+    console.log("[Collection_Id GET]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 };

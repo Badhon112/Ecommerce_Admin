@@ -28,7 +28,6 @@ const CollectionDetails = ({
   useEffect(() => {
     getCollectionDetails();
   }, []);
-  console.log(collection);
 
   return loading ? <Loader /> : <CollectionForm initialData={collection} />;
 };
